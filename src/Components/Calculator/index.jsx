@@ -9,7 +9,8 @@ const Calculator = () => {
   const [firstNumber, setFirstNumber] = useState("");
   const [operator, setOperator] = useState("");
 
-  const showOnScreen = (value) => {
+  const showOnScreen = (e) => {
+    const value = e.target.value;
     if (inputValue === 0) {
       setInputValue(value);
     } else {
@@ -22,6 +23,10 @@ const Calculator = () => {
   };
 
   const del = () => {
+    if (inputValue.length === 1) {
+      setInputValue(0);
+      return;
+    }
     setInputValue(inputValue.slice(0, inputValue.length - 1));
   };
 
@@ -60,25 +65,49 @@ const Calculator = () => {
           onChange={(e) => setInputValue(e.target.value)}
         />
         <S.InteractionBox theme={selectedTheme}>
-          <S.NormalButton theme={selectedTheme} onClick={() => showOnScreen(7)}>
+          <S.NormalButton
+            theme={selectedTheme}
+            onClick={showOnScreen}
+            value={7}
+          >
             7
           </S.NormalButton>
-          <S.NormalButton theme={selectedTheme} onClick={() => showOnScreen(8)}>
+          <S.NormalButton
+            theme={selectedTheme}
+            onClick={showOnScreen}
+            value={8}
+          >
             8
           </S.NormalButton>
-          <S.NormalButton theme={selectedTheme} onClick={() => showOnScreen(9)}>
+          <S.NormalButton
+            theme={selectedTheme}
+            onClick={showOnScreen}
+            value={9}
+          >
             9
           </S.NormalButton>
           <S.DelButton theme={selectedTheme} onClick={del}>
             Del
           </S.DelButton>
-          <S.NormalButton theme={selectedTheme} onClick={() => showOnScreen(4)}>
+          <S.NormalButton
+            theme={selectedTheme}
+            onClick={showOnScreen}
+            value={4}
+          >
             4
           </S.NormalButton>
-          <S.NormalButton theme={selectedTheme} onClick={() => showOnScreen(5)}>
+          <S.NormalButton
+            theme={selectedTheme}
+            onClick={showOnScreen}
+            value={5}
+          >
             5
           </S.NormalButton>
-          <S.NormalButton theme={selectedTheme} onClick={() => showOnScreen(6)}>
+          <S.NormalButton
+            theme={selectedTheme}
+            onClick={showOnScreen}
+            value={6}
+          >
             6
           </S.NormalButton>
           <S.NormalButton
@@ -87,13 +116,25 @@ const Calculator = () => {
           >
             +
           </S.NormalButton>
-          <S.NormalButton theme={selectedTheme} onClick={() => showOnScreen(1)}>
+          <S.NormalButton
+            theme={selectedTheme}
+            onClick={showOnScreen}
+            value={1}
+          >
             1
           </S.NormalButton>
-          <S.NormalButton theme={selectedTheme} onClick={() => showOnScreen(2)}>
+          <S.NormalButton
+            theme={selectedTheme}
+            onClick={showOnScreen}
+            value={2}
+          >
             2
           </S.NormalButton>
-          <S.NormalButton theme={selectedTheme} onClick={() => showOnScreen(3)}>
+          <S.NormalButton
+            theme={selectedTheme}
+            onClick={showOnScreen}
+            value={3}
+          >
             3
           </S.NormalButton>
           <S.NormalButton
@@ -104,11 +145,16 @@ const Calculator = () => {
           </S.NormalButton>
           <S.NormalButton
             theme={selectedTheme}
-            onClick={() => showOnScreen(".")}
+            onClick={showOnScreen}
+            value="."
           >
             .
           </S.NormalButton>
-          <S.NormalButton theme={selectedTheme} onClick={() => showOnScreen(0)}>
+          <S.NormalButton
+            theme={selectedTheme}
+            onClick={showOnScreen}
+            value={0}
+          >
             0
           </S.NormalButton>
           <S.NormalButton
