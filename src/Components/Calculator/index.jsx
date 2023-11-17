@@ -19,15 +19,16 @@ const Calculator = () => {
   };
 
   const reset = () => {
-    setInputValue("");
+    setInputValue(0);
   };
 
   const del = () => {
+    const inputString = inputValue.toString();
     if (inputValue.length === 1) {
       setInputValue(0);
       return;
     }
-    setInputValue(inputValue.slice(0, inputValue.length - 1));
+    setInputValue(inputString.slice(0, -1));
   };
 
   const defineOperator = (operator) => {
@@ -40,6 +41,7 @@ const Calculator = () => {
     switch (operator) {
       case "+":
         setInputValue(firstNumber + parseFloat(inputValue));
+
         break;
       case "-":
         setInputValue(firstNumber - parseFloat(inputValue));
