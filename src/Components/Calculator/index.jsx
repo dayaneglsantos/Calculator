@@ -65,6 +65,7 @@ const Calculator = () => {
           theme={selectedTheme}
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
+          disabled
         />
         <S.InteractionBox theme={selectedTheme}>
           <S.NormalButton
